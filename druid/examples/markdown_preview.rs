@@ -17,7 +17,7 @@
 // On Windows platform, don't show a console when opening the app.
 #![windows_subsystem = "windows"]
 
-use pulldown_cmark::{Event as ParseEvent, Options, Parser, Tag};
+use pulldown_cmark::{Event as ParseEvent, HeadingLevel, Options, Parser, Tag};
 
 use druid::text::{AttributesAdder, RichText, RichTextBuilder};
 use druid::widget::prelude::*;
@@ -195,14 +195,14 @@ fn add_newline_after_tag(tag: &Tag) -> bool {
 
 fn add_attribute_for_tag(tag: &Tag, mut attrs: AttributesAdder) {
     match tag {
-        Tag::Heading(lvl) => {
+        Tag::Heading(lvl, _, _) => {
             let font_size = match lvl {
-                1 => 38.,
-                2 => 32.0,
-                3 => 26.0,
-                4 => 20.0,
-                5 => 16.0,
-                _ => 12.0,
+                HeadingLevel::H1 => 38.,
+                HeadingLevel::H2 => 32.0,
+                HeadingLevel::H3 => 26.0,
+                HeadingLevel::H4 => 20.0,
+                HeadingLevel::H5 => 16.0,
+                HeadingLevel::H6 => 12.0,
             };
             attrs.size(font_size).weight(FontWeight::BOLD);
         }

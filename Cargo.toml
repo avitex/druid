@@ -13,3 +13,8 @@ default-members = [
     "druid-shell",
     "druid-derive",
 ]
+
+[patch.crates-io]
+piet = { git = "https://github.com/avitex/piet", branch = "master" }
+piet-cairo = { git = "https://github.com/avitex/piet", branch = "master" }
+piet-common = { git = "https://github.com/avitex/piet", branch = "master" }

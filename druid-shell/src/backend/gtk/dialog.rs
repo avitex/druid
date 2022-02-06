@@ -17,6 +17,7 @@
 use std::ffi::OsString;
 
 use anyhow::anyhow;
+use gtk::builders::FileChooserNativeBuilder;
 use gtk::{FileChooserAction, FileFilter, ResponseType, Window};
 
 use gtk::prelude::{FileChooserExt, NativeDialogExt};
@@ -47,7 +48,7 @@ pub(crate) fn get_file_dialog_path(
     };
     let title = options.title.as_deref().unwrap_or(title);
 
-    let mut dialog = gtk::FileChooserNativeBuilder::new()
+    let mut dialog = FileChooserNativeBuilder::new()
         .transient_for(window)
         .title(title);
     if let Some(button_text) = &options.button_text {

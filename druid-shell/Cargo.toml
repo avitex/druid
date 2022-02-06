@@ -67,8 +67,8 @@ anyhow = "1.0.32"
 keyboard-types = { version = "0.6.2", default_features = false }
 
 # Optional dependencies
-image = { version = "0.23.12", optional = true, default_features = false }
-raw-window-handle = { version = "0.3.3", optional = true, default_features = false }
+image = { version = "0.24.0", optional = true, default_features = false }
+raw-window-handle = { version = "0.4.2", optional = true, default_features = false }
 
 [target.'cfg(target_os="windows")'.dependencies]
 scopeguard = "1.1.0"
@@ -86,25 +86,25 @@ block = "0.1.6"
 cocoa = "0.24.0"
 objc = "0.2.7"
 core-graphics = "0.22.0"
-foreign-types = "0.3.2"
+foreign-types = "0.5.0"
 bitflags = "1.2.1"
 
 [target.'cfg(any(target_os="linux", target_os="openbsd"))'.dependencies]
 # TODO(x11/dependencies): only use feature "xcb" if using X11
-cairo-rs = { version = "0.14.0", default_features = false, features = ["xcb"] }
-cairo-sys-rs = { version = "0.14.0", default_features = false, optional = true }
-gdk-sys = { version = "0.14.0", optional = true }
+cairo-rs = { version = "0.15.1", default_features = false, features = ["xcb"] }
+cairo-sys-rs = { version = "0.15.1", default_features = false, optional = true }
+gdk-sys = { version = "0.15.1", optional = true }
 # `gtk` gets renamed to `gtk-rs` so that we can use `gtk` as the feature name.
-gtk-rs = { version = "0.14.0", features = ["v3_22"], package = "gtk", optional = true }
-glib-sys = { version = "0.14.0", optional = true }
-gtk-sys = { version = "0.14.0", optional = true }
-nix = { version = "0.18.0", optional = true }
+gtk-rs = { version = "0.15.3", features = ["v3_22"], package = "gtk", optional = true }
+glib-sys = { version = "0.15.4", optional = true }
+gtk-sys = { version = "0.15.3", optional = true }
+nix = { version = "0.23.1", optional = true }
 x11rb = { version = "0.8.0", features = ["allow-unsafe-code", "present", "render", "randr", "xfixes", "xkb", "resource_manager", "cursor"], optional = true }
 wayland-client = { version = "0.29", optional = true }
 wayland-protocols = { version = "0.29", optional = true }
 wayland-cursor = { version = "0.29", optional = true }
 rand = { version = "0.8.0", optional = true }
-calloop = { version = "0.7.1", optional = true }
+calloop = { version = "0.9.3", optional = true }
 log = { version = "0.4.14", optional = true }
 im = { version = "15.0.0", optional = true }
 
@@ -124,5 +124,5 @@ tracing-subscriber = { version = "0.3.2", features = ["env-filter"] }
 unicode-segmentation = "1.7.0"
 
 [build-dependencies]
-bindgen = {version = "0.58", optional = true}
+bindgen = {version = "0.59", optional = true}
 pkg-config = { version = "0.3", optional = true }
